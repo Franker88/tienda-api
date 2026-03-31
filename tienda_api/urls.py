@@ -7,4 +7,5 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/products/', include('products.urls')),
+    path('api/orders/', include('pedidos.urls')),
 ]
