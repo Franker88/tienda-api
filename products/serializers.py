@@ -7,10 +7,12 @@ class ProductosSerializer(serializers.ModelSerializer):
         fields = ['id_producto', 'nombre', 'precio', 'id_categoria']
 
 class CategoriasSerializer(serializers.ModelSerializer):
+    categoria = serializers.SlugRelatedField(source='id_categoria', read_only=True,
+        slug_field='nombre')
     class Meta:
         model = Categorias
         fields = [
-            'id_categoria',
+            'categoria',
             'nombre',
             'descripcion',
         ]

@@ -9,11 +9,14 @@ class Categorias(models.Model):
         managed = False
         db_table = 'Categorias'
 
+    def __str__(self):
+        return self.nombre
+
 class Productos(models.Model):
     id_producto = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    id_categoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='id_categoria')
+    id_categoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='id_categoria', related_name='categoria')
 
     class Meta:
         managed = False

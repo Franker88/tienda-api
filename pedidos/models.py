@@ -17,8 +17,8 @@ class Pedidos(models.Model):
 
 class DetallePedidos(models.Model):
     id_detalle = models.AutoField(primary_key=True)
-    id_pedido = models.ForeignKey(Pedidos, models.DO_NOTHING, db_column='id_pedido')
-    id_producto = models.ForeignKey(Productos, models.DO_NOTHING, db_column='id_producto')
+    id_pedido = models.ForeignKey(Pedidos, models.CASCADE, db_column='id_pedido', related_name='detalles')
+    id_producto = models.ForeignKey(Productos, models.PROTECT, db_column='id_producto', related_name='en_detalles')
     cantidad = models.IntegerField()
     precio_unitario_historico = models.DecimalField(max_digits=18, decimal_places=2)
 

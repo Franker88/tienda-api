@@ -1,4 +1,7 @@
 from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import action
+
 
 from .serializers import PedidosSerializer, DetallePedidosSerializer
 from .models import Pedidos, DetallePedidos
